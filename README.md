@@ -1,4 +1,4 @@
-# :fil_folder: Dotfiles
+# :file_folder: Dotfiles
 ## :computer: Configuration
 - **OS**:       Debian sid
 - **DE**:       KDE
