@@ -1,57 +1,108 @@
-" Disable compatibility with vi which can cause unexpected issues.
-set nocompatible
+" Based on https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
+" Color scheme : https://github.com/tyrannicaltoucan/vim-deep-space
 
-" Enable type file detection. Vim will be able to try to detect the type of file in use.
-filetype on
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=500
 
-" Load an indent file for the detected file type.
+" Enable filetype plugins
+filetype plugin on
 filetype indent on
 
-" Turn syntax highlighting on.
-syntax on
+set fileformat=unix
+set encoding=UTF-8
 
-" Dark background
-set background=dark
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
 
-" Change bell
-set visualbell
+" Always show current position
+set ruler
 
-" Add numbers to each line on the left-hand side.
-set number
+" Height of the command bar
+set cmdheight=1
 
-" INDENT
-set autoindent
-set smartindent
-set smarttab
-" Use space characters instead of tabs.
-set expandtab
-" Auto indent 4 spaces
-set shiftwidth=4
-" Set tab width to 4 columns.
-set tabstop=4
-set softtabstop=4
+" Move cursor up/down
+set whichwrap+=<,>,h,l
 
-" Do not save backup files.
-set nobackup
+" Ignore case when searching
+set ignorecase
 
-" Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=10
+" When searching try to be smart about cases
+set smartcase
 
-" Do not wrap lines. Allow long lines to extend as far as the line goes.
-set nowrap
-
-" While searching though a file incrementally highlight matching characters as you type.
-set incsearch
-
-" Show partial command you type in the last line of the screen.
-set showcmd
-
-" Show the mode you are on the last line.
-set showmode
-
-" Show matching words during a search.
-set showmatch
-
-" Use highlighting when doing a search.
+" Highlight search results
 set hlsearch
 
+" Makes search act like search in modern browsers
+set incsearch
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+
+set cursorline
+set number
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+""""""""""""
+" => Buffer
+""""""""""""
+" Return to last edit position when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+set ai "Auto indent
+set si "Smart indent
+set nowrap "Do not wrap lines
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+set background=dark
+set termguicolors
+colorscheme deep-space
