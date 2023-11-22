@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background: url("assets/background.jpg") center;
+}
+
+#clock {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFFFFF;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+#clock .clock_time {
+    font-size: 128px;
+    font-weight: 500;
+}
+#clock .clock_date {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+#search-bar {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    display: flex;
+    padding-left: 20px;
+    align-items: stretch;
+    gap: 24px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.15);
+}
+#search-bar input {
+    flex-grow: 2;
+    border: none;
+    outline: none;
+    color: #686868;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 12px 0;
+}
+#search-bar input:focus {
+    color: #272727;
+}
+
+#search-bar button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 48px;
+
+}
+#search-bar button:hover {
+    transform: rotate(-45deg);
+    transition: transform ease-in .1s;
+}
+
+.search-bar__logo {
+    width: 29px;
+    height: 30px;
+    margin: 12px 0;
+    background: url("assets/Firefox_logo.svg") no-repeat center;
+    background-size: contain;
+}
