@@ -7,8 +7,8 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-size: cover;
     background: url("assets/background.jpg") center;
+    background-size: cover;
 }
 
 #clock {
@@ -17,16 +17,17 @@ body {
     left: 50%;
     transform: translateX(-50%);
     color: #FFFFFF;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Chillax', sans-serif;
     text-align: center;
 }
 #clock .clock_time {
     font-size: 128px;
     font-weight: 500;
+    letter-spacing: 10px;
 }
 #clock .clock_date {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 10px;
 }
 
@@ -49,7 +50,7 @@ body {
     border: none;
     outline: none;
     color: #686868;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Satoshi', sans-serif;
     font-weight: 500;
     font-size: 16px;
     margin: 12px 0;
