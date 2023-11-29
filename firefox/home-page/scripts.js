@@ -1,4 +1,32 @@
 /**
+ * Clock function
+ */
+const clock = document.querySelector("#clock .clock_time");
+const date = document.querySelector("#clock .clock_date");
+function startTime() {
+  const now = new Date();
+  let h = now.getHours();
+  let m = now.getMinutes();
+  m = m < 10 ? "0" + m : m;
+  clock.innerHTML =  h + ":" + m;
+  if (h === 0) {
+
+  }
+  setTimeout(startTime, 60000);
+}
+startTime()
+
+function updateDate(today) {
+  const options = {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  }
+  date.innerText = new Intl.DateTimeFormat("fr-FR", options).format(today) ;
+}
+updateDate(new Date())
+
+/**
  * Search function
  */
 
