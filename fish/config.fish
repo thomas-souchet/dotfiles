@@ -1,5 +1,6 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+# Aliases
+if [ -f $HOME/.config/fish/aliases.fish ]
+    source $HOME/.config/fish/aliases.fish
 end
 
 # Add go folder to the path
