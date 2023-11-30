@@ -1,5 +1,5 @@
 " Based on https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
-" Color scheme : https://github.com/rakr/vim-one 
+" Color scheme : https://github.com/morhetz/gruvbox 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -105,4 +105,4 @@ set noswapfile
 syntax enable
 set background=dark
 set termguicolors
-colorscheme one 
+colorscheme gruvbox 
