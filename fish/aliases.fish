@@ -1,5 +1,5 @@
 alias c 'clear'
-alias xt 'exit'
+alias :q 'exit'
 alias mv 'mv -i'
 alias reboot 'sudo /sbin/reboot'
 alias .. 'cd ..'
@@ -14,3 +14,7 @@ alias cbut 'cd ~/Documents/ETUDES/IUT/BUT-Info/'
 alias cdot 'cd ~/.dotfiles'
 alias cdl 'cd ~/Téléchargements'
 
+# Go
+alias got 'go test'
+alias gor 'go test -run'
+alias gob 'go build'
