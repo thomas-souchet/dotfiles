@@ -7,4 +7,4 @@
 - **Shell**:    Fish
 - **Terminal**: Kitty
 ## :camera_flash: : Screenshots
-![Kitty](https://github.com/Thomas22-dev/dotfiles/raw/main/.github/assets/screenshot_1.png)
+![Kitty](https://github.com/Thomas22-dev/dotfiles/blob/master/.github/assets/screenshot_1.png?raw=true)
