@@ -6,8 +6,10 @@ alias .. 'cd ..'
 alias ... 'cd ../..'
 
 function mkcd
-    mkdir $argv && cd $argv
+    mkdir -p $argv && cd $argv
 end
+
+alias img 'kitten icat'
 
 # Directories
 alias cbut 'cd ~/Documents/ETUDES/IUT/BUT-Info/'
