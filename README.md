@@ -3,7 +3,7 @@
 - **OS**:       Debian sid
 - **DE**:       KDE
 - **Icons**:    Tela
-- **Font**:     JetBrainsMono Nerd Font
+- **Fonts**:    JetBrainsMono Nerd Font, Roboto Flex
 - **Shell**:    Fish
-- **Terminal**: Konsole
+- **Terminal**: Kitty
 
