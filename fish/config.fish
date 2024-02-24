@@ -3,8 +3,9 @@ if [ -f $HOME/.config/fish/aliases.fish ]
     source $HOME/.config/fish/aliases.fish
 end
 
-# Add go folder to the path
+# Add bin directories to the path
 fish_add_path -a /usr/local/go/bin
+fish_add_path -a /usr/local/kotlinc/bin
 
 # PURE CONFIG
 set -U pure_symbol_git_unpulled_commits ""

@@ -6,5 +6,5 @@
 - **Fonts**:    JetBrainsMono Nerd Font, Roboto
 - **Shell**:    Fish
 - **Terminal**: Kitty
-## :camera_flash: : Screenshots
+## :camera_flash: Screenshots
 ![Kitty](https://github.com/Thomas22-dev/dotfiles/blob/master/.github/assets/screenshot_1.png?raw=true)
