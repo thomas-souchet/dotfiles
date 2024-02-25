@@ -36,7 +36,10 @@ const searchButton = document.querySelector("#search-bar > button")
 const lookup = {
   "deepl":"https://deepl.com/",
   "reddit":"https://reddit.com/",
-  "maps":"https://maps.google.com/"
+  "maps":"https://maps.google.com/",
+  "yt":"https://youtube.com",
+  "x":"https://twitter.com",
+  "chatgpt":"https://chat.openai.com"
 }
 const engine = "duckduckgo"
 const engineUrls = {
@@ -69,3 +72,4 @@ const search = () => {
 
 searchInput.onkeyup = event => event.key === "Enter" && search()
 searchButton.onclick = search
+
