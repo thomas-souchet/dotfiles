@@ -9,10 +9,7 @@ function startTime() {
   let m = now.getMinutes();
   m = m < 10 ? "0" + m : m;
   clock.innerHTML =  h + ":" + m;
-  if (h === 0) {
-
-  }
-  setTimeout(startTime, 60000);
+  setTimeout(startTime, 10000);
 }
 startTime()
 
