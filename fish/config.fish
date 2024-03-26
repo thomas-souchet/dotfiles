@@ -8,8 +8,8 @@ fish_add_path -a /usr/local/go/bin
 fish_add_path -a /usr/local/kotlinc/bin
 
 # PURE CONFIG
-set -U pure_symbol_git_unpulled_commits ""
-set -U pure_symbol_git_unpushed_commits ""
+set -U pure_symbol_git_unpulled_commits "󰜮"
+set -U pure_symbol_git_unpushed_commits "󰜷"
 set -U pure_symbol_git_dirty " "
 set -U pure_symbol_title_bar_separator ""
 set -U pure_color_info "cyan"
