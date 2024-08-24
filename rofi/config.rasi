@@ -51,13 +51,13 @@ configuration {
 window {
     transparency: "real";
     width: 25%;
-    border-radius: 16px;
-    padding: 16px;
+    border-radius: 24px;
+    padding: 20px;
     border: none;
     background-color: @surfaceContainerLowest;
 }
 mainbox {
-  spacing: 16px;
+  spacing: 20px;
 }
 
 // ---- Input ----
@@ -89,7 +89,7 @@ listview {
   dynamic: true;
   backgroud-color: transparent;
   border: none;
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 0px;
   spacing: 4px;
 }
