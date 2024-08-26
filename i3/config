@@ -41,6 +41,9 @@ bindsym $mod+Shift+x exec loginctl lock-session
 # exec --no-startup-id nm-applet
 exec --no-startup-id nmtui
 
+# --- NOTIFICATIONS ---
+exec --no-startup-id dunst
+
 # --- WALLPAPER ---
 exec_always nitrogen --restore
 
