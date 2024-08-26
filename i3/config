@@ -42,7 +42,7 @@ bindsym $mod+Shift+x exec loginctl lock-session
 exec --no-startup-id nmtui
 
 # --- WALLPAPER ---
-exec nitrogen --restore
+exec_always nitrogen --restore
 
 ###############################
 # FUNCTION KEYS
@@ -65,9 +65,9 @@ bindsym XF86AudioNext exec playerctl --all-players next
 bindsym XF86AudioPrev exec playerctl --all-players previous
 
 # Touchpad config
-exec xinput set-prop 10 "libinput Tapping Enabled" 1
-exec xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop 10 "libinput Scrolling Pixel Distance" 30 
+exec --no-startup-id xinput set-prop 9 "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop 9 "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop 9 "libinput Scrolling Pixel Distance" 30 
 
 # Alt+tab to change workspace
 bindsym Mod1+Tab workspace prev
@@ -85,8 +85,10 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+a kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun 
+# --- ROFI ---
+bindsym $mod+d exec "rofi -show drun"
+# Power menu
+bindsym $mod+Shift+q exec rofi -config "/home/$USER/.dotfiles/rofi/config-pm.rasi" -show power-menu -modi "power-menu:/home/$USER/.dotfiles/rofi/rofi-power-menu --choices=suspend/shutdown/reboot/logout --confirm=shutdown/reboot/logout" 
 
 # == Change focus ==
 bindsym $mod+j focus left
