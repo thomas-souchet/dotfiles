@@ -11,35 +11,19 @@
 
 configuration {
     // Config
-	modes: "drun,run,window,filebrowser";
-	drun-display-format: "{name}";
-	max-history-size: 20;
-	font: "Satoshi Medium 12";
+	font: "Satoshi Medium 24";
 	show-icons: true;
 	hover-select: false;
     m: "-4";
-    run-shell-command: "kitty --hold {cmd}";
     scroll-method: 0;
-    sort: true;
 
     // Keybindings
     kb-screenshot: "Alt+S";
-
-    // Modes names
-    display-window: "";
-    display-run: "";
-    display-drun: "";
-    display-filebrowser: "";
 
     // Other
     timeout {
         action: "kb-cancel";
         delay:  15;
-    }
-
-    filebrowser {
-        directories-first: true;
-        sorting-method:    "name";
     }
 }
 
@@ -50,56 +34,38 @@ configuration {
 // ---- Window ----
 window {
     transparency: "real";
-    width: 80%;
+    width: 521px;
     border-radius: 24px;
     padding: 20px;
     border: none;
     background-color: @surfaceContainerLowest;
 }
-mainbox {
-  spacing: 20px;
-}
 
 // ---- Input ----
-inputbar {
-  children: [prompt,entry];
-  spacing: 16px;
-  padding: 10px 16px;
-  background-color: @surfaceContainerHighest;
-  border-radius: 50px;
-}
-
-entry {
-  cursor: pointer;
-  text-color: @onSurface;
-  placeholder: "Search...";
-  placeholder-color: rgba(224, 228, 218, 50%);
-}
-
-prompt {
-  text-color: @onSurface;
+inputbar, prompt, entry {
+  enabled: false;
 }
 
 // ---- List ----
 listview {
   scrollbar: false;
   cycle: false;
-  lines: 7;
   fixed-height: false;
-  dynamic: true;
   backgroud-color: transparent;
   border: none;
-  border-radius: 18px;
   padding: 0px;
-  spacing: 4px;
+  spacing: 24px;
+  layout: horizontal;
 }
 
 // ---- Element ----
 element {
-  orientation: horizontal;
-  children: [ element-text, element-icon ];
-  padding: 8px;
-  spacing: 16px;
+  width: 102px;
+  children: [ element-text ];
+  margin: 0;
+  padding: 32px 37px;
+  spacing: 0;
+  border-radius: 100%;
 }
 element.normal.normal, element.alternate.normal {
   background-color: @surfaceContainerHigh;
@@ -114,14 +80,10 @@ element.selected.normal, element.selected.active {
   text-color: @inverseOnSurface; 
 }
 
-element-icon {
-  size: 30px;
-  margin: 0 8px 0 0;
-}
-
 element-text {
-  vertical-align: 0.5;
-  margin: 0 0 0 8px;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 // ---- Message ----
