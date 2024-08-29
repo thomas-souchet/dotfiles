@@ -13,7 +13,7 @@ set $mod Mod4
 ###############################
 # FONT
 ###############################
-font pango:Satoshi Medium 10
+font pango:Satoshi Medium 11
 
 ###############################
 # AUTOSTART
@@ -38,8 +38,7 @@ bindsym $mod+Shift+x exec loginctl lock-session
 # --- NETWORK MANAGER ---
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-exec --no-startup-id nmtui
+exec --no-startup-id nm-applet
 
 # --- NOTIFICATIONS ---
 exec --no-startup-id dunst
@@ -48,29 +47,34 @@ exec --no-startup-id dunst
 exec_always nitrogen --restore
 
 ###############################
-# FUNCTION KEYS
+# FUNCTION KEYS AND TOUCHPAD
 ###############################
 
-# Brightness
+# --- BRIGHTNESS ---
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-# Audio
+# --- AUDIO ---
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-# Play / Pause
+# Play / Pause / Next / Prev
 bindsym XF86AudioPlay exec playerctl --all-players play-pause
 bindsym XF86AudioPause exec playerctl --all-players play-pause
 bindsym XF86AudioNext exec playerctl --all-players next
 bindsym XF86AudioPrev exec playerctl --all-players previous
 
-# Touchpad config
+# --- TOUCHPAD ---
 exec --no-startup-id xinput set-prop 9 "libinput Tapping Enabled" 1
 exec --no-startup-id xinput set-prop 9 "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id xinput set-prop 9 "libinput Scrolling Pixel Distance" 30 
+focus_follows_mouse no
+
+###############################
+# KEY BINDINGS
+###############################
 
 # Alt+tab to change workspace
 bindsym Mod1+Tab workspace prev
@@ -80,20 +84,12 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
-
-# start a terminal
-bindsym $mod+Return exec kitty 
+tiling_drag modifier
 
 # kill focused window
 bindsym $mod+Shift+a kill
 
-# --- ROFI ---
-bindsym $mod+d exec "rofi -show drun"
-# Power menu
-bindsym $mod+Shift+q exec rofi -config "/home/$USER/.dotfiles/rofi/config-pm.rasi" -show power-menu -modi "power-menu:/home/$USER/.dotfiles/rofi/rofi-power-menu --choices=suspend/shutdown/reboot/logout --confirm=shutdown/reboot/logout" 
-
-# == Change focus ==
+# --- CHANGE FOCUS ---
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -103,8 +99,12 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+# focus the parent container
+bindsym $mod+q focus parent
+# focus the child container
+#bindsym $mod+d focus child
 
-# == Move focused window ==
+# --- MOVE FOCUSED WINDOW
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
@@ -115,31 +115,33 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# --- LAYOUT ---
+# Split in horizontal and vertical orientation
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
+# Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
+# Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# --- FLOATING ---
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+q focus parent
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# focus the child container
-#bindsym $mod+d focus child
+###############################
+# WORKSPACES
+###############################
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -178,14 +180,44 @@ bindsym $mod+Shift+underscore move container to workspace number $ws8
 bindsym $mod+Shift+ccedilla move container to workspace number $ws9
 bindsym $mod+Shift+agrave move container to workspace number $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+###############################
+# STYLE
+###############################
 
-# resize window (you can also use the mouse for that)
+# --- TITLE BAR ---
+# Show icon
+for_window [all] title_window_icon padding 8px 8px
+# Text
+for_window [all] title_format "<b>%title</b>"
+title_align center
+# Desactivate title bars in split
+default_border pixel 3
+default_floating_border pixel 3
+
+# --- GAPS ---
+gaps inner 10
+gaps outer 0
+smart_gaps on
+
+hide_edge_borders smart_no_gaps
+
+###############################
+# COLORS
+###############################
+
+# class                  border  backgr. text    indicator child_border
+client.focused           #363a34 #363a34 #e0e4da #3e6837   #a3d397
+client.focused_inactive  #1d211b #1d211b #c2c8bc #275022   #275022
+client.unfocused         #1d211b #1d211b #c2c8bc #363a34   #363a34
+client.urgent            #ffb4ab #93000a #ffb4ab #93000a   #93000a
+client.placeholder       #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background        #11140f
+
+###############################
+# RESIZE
+###############################
+
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -212,6 +244,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+###############################
+# BAR
+###############################
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -225,22 +261,20 @@ bar {
         padding 4px 8px
 }
 
+###############################
+# APPS CONFIG
+###############################
 
-hide_edge_borders smart_no_gaps
-
-focus_follows_mouse no
-
-# Assign workspaces
+# --- ASSIGN WORSPACES ---
 assign [class="Firefox"] 1
 assign [class="Spotify"] 4
 
-# Gaps
-gaps inner 10
-gaps outer 10
-smart_gaps on
+# --- ROFI ---
+bindsym $mod+d exec "rofi -show drun"
+# Power menu
+bindsym $mod+Shift+q exec rofi -config "/home/$USER/.dotfiles/rofi/config-pm.rasi" -show power-menu -modi "power-menu:/home/$USER/.dotfiles/rofi/rofi-power-menu --choices=suspend/shutdown/reboot/logout --confirm=shutdown/reboot/logout" 
 
-for_window [all] title_window_icon on 
-
-# Launch apps #
+# --- LAUNCH APPS ---
 bindsym $mod+w exec firefox
-bindsym $mod+n exec dolphin
+bindsym $mod+n exec thunar
+bindsym $mod+Return exec kitty 
