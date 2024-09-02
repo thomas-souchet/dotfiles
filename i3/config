@@ -27,10 +27,10 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom -b --config /home/$USER/.dotfiles/picom/picom.conf 
 
 # --- SCREEN LOCKER ---
-# Lock screen after 1min
-exec --no-startup-id xset s 60
-# Turn off screen after 3min
-exec --no-startup-id xset dpms 0 0 180  
+# Lock screen after 5min
+exec --no-startup-id xset s 300
+# Turn off screen after 6min
+exec --no-startup-id xset dpms 0 0 360
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the screen before suspend.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/$USER/.dotfiles/i3lock/lock.sh
 bindsym $mod+Shift+x exec loginctl lock-session
@@ -39,6 +39,9 @@ bindsym $mod+Shift+x exec loginctl lock-session
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# --- BLUETOOTH ---
+exec --no-startup-id blueman-applet
 
 # --- NOTIFICATIONS ---
 exec --no-startup-id dunst
@@ -248,18 +251,21 @@ bindsym $mod+r mode "resize"
 # BAR
 ###############################
 
+# --- POLYBAR ---
+exec_always --no-startup-id /home/$USER/.dotfiles/polybar/launch.sh
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        position top
-        colors {
-            background #2e2e2e
-            statusline #F4F4F4
-        }
-        workspace_min_width 40
-        padding 4px 8px
-}
+# bar {
+#         status_command i3status
+#         position top
+#         colors {
+#             background #2e2e2e
+#             statusline #F4F4F4
+#         }
+#         workspace_min_width 40
+#         padding 4px 8px
+# }
 
 ###############################
 # APPS CONFIG
