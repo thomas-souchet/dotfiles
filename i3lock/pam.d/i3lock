@@ -1,1 +1,11 @@
-/etc/pam.d/i3lock
+# ----
+# Copy this file in /etc/pam.d/i3lock
+# ----
+# PAM configuration file for the i3lock-color screen locker. By default, it includes
+# the 'system-local-login' configuration file (see /etc/pam.d/system-local-login)
+# for Arch and Gentoo and 'login' for Debian. Note that upstream uses only 'login',
+# which doesn't work on Arch and Gentoo.
+#
+
+#auth include system-local-login # For Arch/Gentoo
+auth include login # For Debian
