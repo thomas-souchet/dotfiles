@@ -70,9 +70,9 @@ bindsym XF86AudioNext exec playerctl --all-players next
 bindsym XF86AudioPrev exec playerctl --all-players previous
 
 # --- TOUCHPAD ---
-exec --no-startup-id xinput set-prop 9 "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop 9 "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop 9 "libinput Scrolling Pixel Distance" 30 
+exec --no-startup-id xinput set-prop "VEN_04F3:00 04F3:314B Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "VEN_04F3:00 04F3:314B Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop "VEN_04F3:00 04F3:314B Touchpad" "libinput Scrolling Pixel Distance" 30 
 focus_follows_mouse no
 
 ###############################
@@ -282,5 +282,5 @@ bindsym $mod+Shift+q exec rofi -config "/home/$USER/.dotfiles/rofi/config-pm.ras
 
 # --- LAUNCH APPS ---
 bindsym $mod+w exec firefox
-bindsym $mod+n exec thunar
+bindsym $mod+n exec nautilus
 bindsym $mod+Return exec kitty 

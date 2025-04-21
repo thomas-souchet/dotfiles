@@ -12,7 +12,7 @@ end
 alias img 'kitten icat'
 
 # Directories
-alias cbut 'cd ~/Documents/ETUDES/IUT/BUT-Info/'
+alias cbut 'cd ~/Documents/ETUDES/IUT/Ressources/SEMESTRE-4'
 alias cdot 'cd ~/.dotfiles'
 alias cdl 'cd ~/Téléchargements'
 

@@ -17,3 +17,12 @@ set -U pure_color_current_directory "blue"
 set -U pure_color_prompt_on_success "yellow"
 set -U pure_color_mute "magenta"
 
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/home/thomas/.opam/opam-init/init.fish' && source '/home/thomas/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+# END opam configuration
