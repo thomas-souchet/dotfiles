@@ -1,0 +1,21 @@
+[Unit]
+
+Description=Dunst low battery notification service
+
+After=dunst.service
+
+[Service]
+
+Type=simple
+
+ExecStart=/bin/bash /home/thomas/.dotfiles/dunst/battery-notification.sh
+
+Restart=always
+
+RestartSec=120
+
+Environment="DISPLAY=:0" 
+
+[Install]
+
+WantedBy=default.target 

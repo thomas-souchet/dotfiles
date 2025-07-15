@@ -34,6 +34,8 @@ exec --no-startup-id xset dpms 0 0 360
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the screen before suspend.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/$USER/.dotfiles/i3lock/lock.sh
 bindsym $mod+Shift+x exec loginctl lock-session
+# desactivate lockscreen with : mod alt x
+bindsym $mod+Mod1+x exec xset -dpms && xset s off && dunstify -t 2000 -a "Système" "Écran de verrouillage désactivé"
 
 # --- NETWORK MANAGER ---
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -47,15 +49,15 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 
 # --- WALLPAPER ---
-exec_always nitrogen --restore
+exec_always --no-startup-id nitrogen --restore
 
 ###############################
 # FUNCTION KEYS AND TOUCHPAD
 ###############################
 
 # --- BRIGHTNESS ---
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% && /home/thomas/.dotfiles/dunst/brightness-notification.sh
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && /home/thomas/.dotfiles/dunst/brightness-notification.sh
 
 # --- AUDIO ---
 set $refresh_i3status killall -SIGUSR1 i3status
