@@ -12,7 +12,7 @@ end
 alias img 'kitten icat'
 
 # Directories
-alias cbut 'cd ~/Documents/ETUDES/IUT/Ressources/SEMESTRE-4'
+alias cimag 'cd ~/Documents/ETUDES/ENSIMAG/1A'
 alias cdot 'cd ~/.dotfiles'
 alias cdl 'cd ~/Téléchargements'
 
@@ -20,3 +20,11 @@ alias cdl 'cd ~/Téléchargements'
 alias got 'go test'
 alias gor 'go test -run'
 alias gob 'go build'
+
+# Rust
+alias cgr 'cargo run'
+alias cgb 'cargo build'
+alias cgt 'cargo test'
+
+# Desactivate automatic locksreen
+alias nolock 'xset -dpms && xset s off'
